@@ -1,3 +1,7 @@
+/**
+ * 手写一个双向绑定
+ *
+ * */
 <input id="input" type="text"/>
 <div id="text"></div>
 
