@@ -68,6 +68,7 @@ function palindrome(s, l, r) {
         r++;
     }
     // 返回以 s[l] 和 s[r] 为中心的最长回文串
+    // todo l+1 ? 为啥l??? 而不是l-1
     return s.substring(l + 1, r);
 }
 
@@ -88,3 +89,19 @@ var longestPalindrome = function (s) {
     return res;
 };
 
+/**
+ * 反转字符串
+ * */
+var reverseString = function (s) {
+    // 一左一右两个指针相向而行
+    let left = 0,
+        right = s.length - 1;
+    while (left < right) {
+        // 交换 s[left] 和 s[right]
+        let temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+        left++;
+        right--;
+    }
+};

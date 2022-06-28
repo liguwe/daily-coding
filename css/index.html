@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+<!--
+先分析flex属性的信息
+1.left容器 放大比例1，缩小比例 2 默认占500px
+2.right容器 放大比例2，缩小比例 1 默认占400px
+
+当子项目宽度总和大于父容器宽度时，如果有缩小比例将按照缩小比例进行压缩，比如子项目总和900px大于父容器600px，多出的300px将按照缩小比例进行压缩
+left容器将会压缩2/3* 300 = 200px
+right容器将会压缩1/3* 300 =100px
+所以最终left和right宽度都是300px
+同理当子项目宽度总和小于父容器宽度时，如果有放大比例将按照放大比例进行扩张。
+-->
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        width: 600px;
+        height: 300px;
+        display: flex;
+    }
+    .left {
+        flex: 1 2 500px;
+        background: red;
+    }
+    .right {
+        flex: 2 1 400px;
+        background: blue;
+    }
+</style>
+
+</body>
+</html>
