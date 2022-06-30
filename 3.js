@@ -20,9 +20,7 @@ function fn(result) {
     for (let i = 0; i < result.length; i++) {
         if (origin.length) {
             // 将最后一个取出来，放第一个
-            // const item = origin.splice(origin.length - 1, 1)[0];
-            const item = origin.pop();
-            origin.unshift(item);
+            origin.unshift(origin.pop());
         }
         origin.unshift(result[i])
     }

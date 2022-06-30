@@ -9,7 +9,6 @@ console.log('===>', Number(str).toLocaleString());
 
 
 let s3 = str.split("").reverse().reduce((prev, cur, index) => {
-
     if ((index + 1) % 3 === 0) {
         return ',' + cur + prev
     }

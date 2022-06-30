@@ -3,7 +3,8 @@
  * */
 
 // 方法一
-let a1 = [...Array(10000).keys()].filter(i => i.toString().length > 1 && i == i.toString().split('').reverse().join(''))
+let a1 = [...Array(10000).keys()]
+    .filter(i => i.toString().length > 1 && i === i.toString().split('').reverse().join(''))
 
 
 console.log(a1);

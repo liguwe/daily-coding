@@ -13,6 +13,9 @@ function fn(n) {
     }
     return c;
 }
+
+
+
 // todo 或者  match也行
 console.log("11112111".match(/1/g).length)
 

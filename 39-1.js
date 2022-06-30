@@ -1,5 +1,6 @@
 /**
  * 使用深度遍历和广度遍历思想实现一个深拷贝
+ * 考虑symbol场景呢？
  * https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/10
  * */
 
