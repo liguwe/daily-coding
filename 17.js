@@ -13,6 +13,7 @@ const square = num => {
     })
 }
 
+// foreach肯定不行
 function test() {
     list.forEach(async x=> {
         const res = await square(x)
@@ -22,6 +23,7 @@ function test() {
 test()
 
 ////////////////////////////////////////// => 修改如下
+// for of 可以
 console.log('test1:');
 async function  test1() {
     for(let x of list){
@@ -31,6 +33,8 @@ async function  test1() {
 }
 test1()
 
+// for 循环也行，
+// TODO 但都得加async
 console.log('test3:');
 async function test3() {
     for (let i = 0; i < list.length; i++) {

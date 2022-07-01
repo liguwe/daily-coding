@@ -32,6 +32,7 @@ function fn(arr) {
              * 选择
              * ************************/
             if (used[i]) continue; // 不合法选择
+
             track.push(item);
             used[i] = true;
 
@@ -44,6 +45,7 @@ function fn(arr) {
              * ************************/
             track.pop();
             used[i] = false;
+
         }
     }
 

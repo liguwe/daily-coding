@@ -6,7 +6,9 @@ function fn(str) {
     let arr = str.split(',').map(Number);
     let len = arr.length;
     let s = new Array(len).fill(false);
+    // 第一步
     s[0] = arr[0];
+    // 第二步 遍历
     for (let i = 1; i < len; i++) {
         let item = arr[i];
         let prev = arr[i - 1];
@@ -25,6 +27,7 @@ function fn(str) {
             }
         }
     }
+    // 第三步 处理空值情况
     return s.filter(Boolean).join(',').replace(/,~/g, '~')
 }
 

@@ -7,7 +7,7 @@ function fn(arr) {
     if (arr.length < 2) {
         return arr;
     }
-    /////////////////////////////////// 前序遍历 start
+    /// TODO  //////////////////////////////// 前序遍历 start
     let mid = Math.floor((arr.length - 1) / 2);
     let midItem = arr.splice(mid, 1)[0];
     let left = [];
@@ -20,7 +20,8 @@ function fn(arr) {
             right.push(item)
         }
     }
-    /////////////////////////////////////  前序遍历 end
+    // TODO  ///////////////////////////////////  前序遍历 end
+    // TODO 记得把midItem也加进去，不然有问题！
     return fn(left).concat(midItem, fn(right));
 }
 

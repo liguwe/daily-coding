@@ -11,6 +11,7 @@ function fn(str) {
         return !!item
     });
     let res = {};
+    // 使用中间变量，temp
     let temp = {};
     arr.forEach((item, index) => {
         if (index === 0) {
@@ -20,6 +21,7 @@ function fn(str) {
         } else {
             temp.children = {}
             temp.children.value = item
+            // 重新赋值temp
             temp = temp.children
         }
     })

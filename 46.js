@@ -1,4 +1,9 @@
 /**
+ * https://leetcode.cn/problems/palindrome-linked-list/
+ * 判断回文链表
+ * */
+
+/**
  * Definition for singly-linked list.
  */
 
@@ -44,24 +49,29 @@ function isHuiWenLinked(head) {
     let p = head;
     let values = [];
     while (p && p.val) {
-        values.push(head.val)
+        values.push(p.val)
         p = p.next
     }
     return isHuiWen(values.join(''));
 }
 
-// 递归解法,看看吧，不理解就算了
+// 递归解法, 看看吧，不理解就算了
+// 后续遍历解法，指定了r
 function isHuiWenLinked2(head) {
     let left = head;
 
     function traverse(right) {
         if (right === null) return true;
-        let res = traverse(right.head);
-        // 后续位置
+        // 往前移动
+        let res = traverse(right.next);
+
+        //////todo  后续位置
         res = res && (right.val === left.val);
+        // 左节点往前移动
         left = left.next;
         return res;
     }
+
     traverse(head);
 }
 

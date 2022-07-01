@@ -7,6 +7,23 @@ var entry = {
     'a.e': 'ae',
 }
 
+// 要求转换成如下对象
+var output = {
+    a: {
+        b: {
+            c: {
+                dd: 'abcdd'
+            }
+        },
+        d: {
+            xx: 'adxx'
+        },
+        e: 'ae'
+    }
+}
+
+
+
 function fn(obj) {
     let res = {};
     Object.keys(obj).forEach((k) => {
@@ -27,17 +44,3 @@ function fn(obj) {
 
 fn(entry)
 
-// 要求转换成如下对象
-var output = {
-    a: {
-        b: {
-            c: {
-                dd: 'abcdd'
-            }
-        },
-        d: {
-            xx: 'adxx'
-        },
-        e: 'ae'
-    }
-}

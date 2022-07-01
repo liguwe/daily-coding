@@ -1,5 +1,8 @@
 var arr = [[2, 3], [1, 2], [[10], [1, [[2, 111, [2, [2, [34, [33, [44, [55]]]]]]]]]]]
 
+
+console.log(arr.toString());
+
 // 方法1：排序，去重等
 console.log(
     [...new Set(arr.toString().split(","))].sort((a, b) => {

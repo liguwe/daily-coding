@@ -29,7 +29,7 @@ class Observerd {
         // 并通知所有的观察者
         let that = this;
         this.observers.forEach((item, index) => {
-            item.update(that);
+            item.publish(that);
         })
     }
 }
@@ -40,7 +40,7 @@ class Observer {
 
     }
     // 将被观察者对象当做参数传入
-    update(observer) {
+    publish(observer) {
         console.log(observer.name + "正在" + observer.state)
     }
 }
