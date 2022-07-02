@@ -1,4 +1,5 @@
 /**
+ *  回溯算法
  *  全排列
  * 'abc' => ['abc','acb','bac','bca','cab','cba']
  *
@@ -36,9 +37,7 @@ function fn(arr) {
             track.push(item);
             used[i] = true;
 
-
             backtrack(nums, track, used);
-
 
             /***************************
              * 取消选择

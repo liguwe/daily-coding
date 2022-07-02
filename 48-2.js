@@ -17,38 +17,39 @@
  * */
 
 function fn(n) {
-
     let res = [];
 
     function backtrack(len, res, b) {
         /**
          * 满足条件
          * */
-        if (b.length === len && isValid(b)) {
-            res.push(b);
+        if (b.length === n * 2) {
+            if (isValid(b)) {
+                res.push([...b]);
+            }
             return;
         }
         /**
          * 选择列表
          * */
         for (let str of ['(', ')']) {
-
             /**
              * 做选择
              * */
             b.push(str);
             backtrack(len - 1, res, b);
-
             /**
              * 取消选择
              * */
-            b.pop()
+            b.pop();
+
         }
-
-
     }
 
     backtrack(n * 2, res, []);
+
+    console.log('res:', res);
+    console.log('res.length:', res.length);
 
     return res;
 }
@@ -60,13 +61,18 @@ function isValid(b) {
         const str = b[i];
         if (str === '(') {
             stack.push(str);
-        } else if (str === ')') {
-            const top = stack.pop();
-            if (top !== '(') return false;
+        }
+        if (str === ')') {
+            if (stack.pop() !== '(') {
+                return false;
+            }
         }
     }
-    return stack.length;
+    return stack.length === 0;
 
 }
 
+console.log(isValid(['(', ')', ')', '(']))
+
 fn(2);
+fn(4);

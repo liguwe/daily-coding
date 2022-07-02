@@ -1,0 +1,20 @@
+{
+  "name": "fuckcode",
+  "version": "1.0.0",
+  "description": "fuckCode - 自己写下来 - 或者思路相当自信",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liguwe/fuckCode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liguwe/fuckCode/issues"
+  },
+  "homepage": "https://github.com/liguwe/fuckCode#readme"
+}
