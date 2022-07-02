@@ -1,3 +1,6 @@
+/*************************************************
+ * 打平一个树形结构
+ ************************************************/
 let ss = [
     {
         id: '1',
@@ -39,11 +42,16 @@ let ss = [
 
 let res = [];
 
+
+// ::: 其实这里前序后续位置都行
 function flatten(arr) {
     arr.forEach((item, index) => {
         if (item.children && item.children.length) {
-            flatten(item.children)
+            // ::: 前序位置
             res.push(item)
+            flatten(item.children)
+            // ::: 后序遍历
+            // res.push(item)
             delete item.children;
         } else {
             res.push(item)
@@ -51,6 +59,7 @@ function flatten(arr) {
     });
     return res;
 }
+
 
 console.log(flatten(ss))
 
