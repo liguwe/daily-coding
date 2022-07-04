@@ -4,14 +4,16 @@
  示例二：'[abc[bcd[def]]]' --> {value: 'abc', children: {value: 'bcd', children: {value: 'def'}}}
  */
 
-// 方法1 ：使用"引用"
+//// ::::方法1 ：使用"引用"
 function fn(str) {
-    //TODO 注意这个正则表达式啊
+
+    //::::注意这个正则表达式啊
     let arr = str.split(/[\[\]]/).filter((item) => {
         return !!item
     });
+
     let res = {};
-    // 使用中间变量，temp
+    // ::::使用中间变量，temp
     let temp = {};
     arr.forEach((item, index) => {
         if (index === 0) {
@@ -21,7 +23,7 @@ function fn(str) {
         } else {
             temp.children = {}
             temp.children.value = item
-            // 重新赋值temp
+            //::::重新赋值temp
             temp = temp.children
         }
     })

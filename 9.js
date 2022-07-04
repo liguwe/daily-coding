@@ -1,5 +1,5 @@
 /**
- * 第 158 题：如何模拟实现 Array.prototype.splice #384
+ * 如何模拟实现 Array.prototype.splice #384
  * */
 
 Array.prototype.splice = Array.prototype.splice || function (start, deleteCount, ...addList) {
@@ -25,6 +25,7 @@ Array.prototype.splice = Array.prototype.splice || function (start, deleteCount,
         this[addIndex] = item
         addIndex++
     })
+
     this.length = addIndex
 
     return removeList

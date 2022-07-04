@@ -1,9 +1,15 @@
-/**
 
- [123, "meili", "123", "mogu", 123]，则输出：[123, "meili", "123", "mogu"]
- [123, [1, 2, 3], [1, "2", 3], [1, 2, 3], "meili"]，则输出：[123, [1, 2, 3], [1, "2", 3], "meili"]
- [123, {a: 1}, {a: {b: 1}}, {a: "1"}, {a: {b: 1}}, "meili"]，则输出：[123, {a: 1}, {a: {b: 1}}, {a: "1"}, "meili"]
- */
+/*************************************************
+ * 编程题，根据以下要求，写一个数组去重函数
+ *  [123, "meili", "123", "mogu", 123]
+ *          则输出：[123, "meili", "123", "mogu"]
+ *  [123, [1, 2, 3], [1, "2", 3], [1, 2, 3], "meili"]，
+ *         则输出：[123, [1, 2, 3], [1, "2", 3], "meili"]
+ *  [123, {a: 1}, {a: {b: 1}}, {a: "1"}, {a: {b: 1}}, "meili"]
+ *         则输出：[123, {a: 1}, {a: {b: 1}}, {a: "1"}, "meili"]
+ ************************************************/
+
+
 function fn(arr) {
     let map = new Map();
     for (let i = 0; i < arr.length; i++) {
@@ -19,7 +25,7 @@ function fn(arr) {
 }
 
 function isObj(obj) {
-    Object.prototype.toString.bind(obj).includes('Object');
+    return Object.prototype.toString.call(obj).includes('Object');
 }
 
 // 对象重整 对key进行排序

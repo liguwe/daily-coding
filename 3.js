@@ -14,7 +14,7 @@
 
 var list = /*(牌底)*/[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];/*牌顶*/
 
-// todo 只用到了 pop 和 unshift ,其他都不用
+// // ::::只用到了 pop 和 unshift ,其他都不用
 function fn(result) {
     const origin = [];
     for (let i = 0; i < result.length; i++) {

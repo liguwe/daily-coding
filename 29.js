@@ -16,7 +16,6 @@ function fn(arr) {
      * @param used 标识是否已经选择了
      * */
     function backtrack(nums, track, used) {
-        // if 满足条件
         /***************************
          * if 满足条件，触发添加路径
          * ************************/

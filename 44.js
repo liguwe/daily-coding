@@ -3,10 +3,15 @@
  * */
 
 Number.prototype.add = function (i) {
-    //todo  typeof === number
+    if (typeof i !== 'number') {
+        throw new Error('请输入数字～');
+    }
     return this + i;
 }
 Number.prototype.minus = function (i) {
+    if (typeof i !== 'number') {
+        throw new Error('请输入数字～');
+    }
     return this + i;
 }
 
