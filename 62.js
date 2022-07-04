@@ -8,6 +8,7 @@
 const add = (...args) => {
     let vars = []
     const curried = (...arg2) => {
+        // ::::这里 vars,记住了
         vars = [...vars, ...arg2]
         return curried
     }
