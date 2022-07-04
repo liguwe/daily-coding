@@ -1,10 +1,10 @@
 
 /*************************************************
- * // :::通用的单例模式
+ * // ::::通用的单例模式
  ************************************************/
 const getSingle = function (fn) {
     let result;
-    //::: 闭包返回一个函数
+    //:::: 闭包返回一个函数
     return function () {
         return result || (result = fn.apply(this, arguments));
     };

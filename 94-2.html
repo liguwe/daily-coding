@@ -1,0 +1,34 @@
+<!-- :::: 用css2和css3分别写一下垂直居中和水平居中 -->
+
+<!-- ::::绝对定位的 div 水平垂直居中 -->
+
+<style>
+    .outer {
+        width: 400px;
+        height: 600px;
+        background-color: #004444;
+        border: 1px solid red;
+        position: relative;
+    }
+
+    .inner {
+        position: absolute;
+        background: red;
+
+        /*::::关键代码 start*/
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        /*::::关键代码 end*/
+
+
+        width: 200px;
+        height: 300px;
+        border: 1px solid blue;
+    }
+</style>
+<div class="outer">
+    <div class="inner">我想居中显示</div>
+</div>

@@ -1,0 +1,29 @@
+<!-- ::::css动画 -->
+
+<!-- :::: 1、animation：用于设置动画属性，他是一个简写的属性，包含6个属性 -->
+
+
+
+<!-- :::: 2、transition：用于设置元素的样式过度，和animation有着类似的效果，但细节上有很大的不同 -->
+
+<style>
+    #box {
+        height: 100px;
+        width: 100px;
+        background: green;
+        transition: transform 1s ease-in 1s;
+    }
+
+    #box:hover {
+        transform: rotate(180deg) scale(.5, .5);
+    }
+</style>
+
+
+<!--
+::::3、transform：用于元素进行旋转、缩放、移动或倾斜，和设置样式的动画并没有什么关系
+            translate：translate只是transform的一个属性值，即移动，除此之外还有 scale 等
+
+::::和动画并没有什么关系
+ -->
+

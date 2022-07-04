@@ -1,0 +1,69 @@
+<!-- :::: 自己实现吸顶Demo1  -->
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .top-container {
+        height: 50px;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .top {
+        height: 50px;
+        background: #000088;
+        width: 100%;
+    }
+
+    .top-content,
+    .bottom-content {
+        height: 200vh;
+        display: inline-block;
+        width: 100%;
+        background-color: #00ff00;
+    }
+</style>
+
+<div class="top-content"></div>
+<div class="top-container">
+    <!-- ::::在吸顶元素 position 变为 fixed 的时候，该元素就脱离了文档流，下一个元素就进行了补位。就是这个补位操作造成了抖动 -->
+    <!-- ::::解决方案：为这个吸顶元素添加一个等高的父元素 -->
+    <div class="top">top</div>
+</div>
+<div class="bottom-content"></div>
+
+<script>
+    /*************************************************
+     * // ::::sticky 与 position:fixed 的关系？
+     * 1、每到达临界点吸顶时，行为和relative一样，之后和fixed一样
+     *
+     * // ::::怎么找最近滚动祖先
+     * 一般而言只要往父级查找，遇到的第一个 overflow 不是visible的元素就是最近滚动祖先(scrollport)。
+     * 找不到时，viewport 就是最近滚动祖先。
+     ************************************************/
+
+
+    /*************************************************
+     * // ::::自己手写一个
+     * https://juejin.cn/post/6844903815041269774
+     * https://www.cnblogs.com/sooooogiotto/p/14272138.html
+     ************************************************/
+
+    function sticky(bottomContent, fixHeader, height) {
+        window.onscroll = function () {
+            // ::::用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+            const bottomContentRect = bottomContent.getBoundingClientRect();
+            if (bottomContentRect.top  - fixHeader.clientHeight <= height) {
+                fixHeader.style.position = 'fixed'
+                fixHeader.style.top = height + 'px';
+            } else {
+                fixHeader.style.position = 'relative'
+                fixHeader.style.top = height + 'px'
+            }
+        }
+    }
+
+    sticky(document.getElementsByClassName("bottom-content")[0], document.getElementsByClassName("top")[0], 0);
+</script>

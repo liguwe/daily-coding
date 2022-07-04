@@ -1,0 +1,21 @@
+<!-- ::::问：实现两栏布局的方式： -->
+<!-- ::::BFC + float  -->
+
+<style>
+    div {
+        height: 500px;
+    }
+    .aside {
+        width: 300px;
+        float: left;
+        background: yellow;
+    }
+    .main {
+        overflow: hidden;
+        background: aqua;
+    }
+</style>
+<body>
+<div class="aside"></div>
+<div class="main"></div>
+</body>

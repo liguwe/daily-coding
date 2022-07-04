@@ -13,18 +13,18 @@ var maxDepth = function (root) {
             return;
         }
 
-        //::: 前序位置 start
+        //:::: 前序位置 start
         depth++;
 
         if (root.left === null && root.right === null) {
             res = Math.max(depth, res);
         }
 
-        //::: 前序位置 end
+        //:::: 前序位置 end
         traverse(root.left);
-        //::: 中序位置，什么也不做
+        //:::: 中序位置，什么也不做
         traverse(root.right);
-        //::: 后续位置-1
+        //:::: 后续位置-1
         depth--;
 
     }

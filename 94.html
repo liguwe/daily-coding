@@ -1,0 +1,30 @@
+<!-- :::: 用css2和css3分别写一下垂直居中和水平居中 -->
+
+<!-- ::::已知宽高，进行水平垂直居中 -->
+
+
+<style>
+    .outer {
+        position: relative;
+        width: 400px;
+        height: 600px;
+        background: blue;
+    }
+
+    .inner {
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        background: red;
+        left: 50%; /*::::相对于父元素，及400px →  200px*/
+        top: 50%; /*::::相对于父元素，及600px →  300px*/
+        /*
+        :::: 当设置负值的 margin 的方向为 top 或者 left 的时候，元素也会按照设置的方向移动相应的距离。
+        :::: 设置 margin-right/bottom 对后面的元素并没有影响
+           */
+        margin: -150px 0 0 -100px;
+    }
+</style>
+<div class="outer">
+    <div class="inner"></div>
+</div>

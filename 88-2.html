@@ -1,0 +1,23 @@
+<!-- ::::问：CSS 怎么画一个大小为父元素宽度一半的正方形？ -->
+
+
+
+<style>
+    .outer {
+        width: 400px;
+        height: 600px;
+        background: red;
+    }
+
+    .inner {
+        width: 50%;
+        /*::::相对于width来算的*/
+        padding-bottom: 50%;
+        background: blue;
+    }
+</style>
+
+<div class="outer">
+    <div class="inner"></div>
+</div>
+

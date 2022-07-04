@@ -1,0 +1,81 @@
+<!-- :::: 自己实现吸顶Demo2  -->
+<style>
+    div {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 15px;
+        background-color: pink;
+    }
+
+    #red {
+        background-color: red;
+    }
+    body {
+        height: 3000px;
+    }
+</style>
+//页面
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div id="red"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    var oDiv = document.getElementById("red");
+    // div在页面的占位高，div到body的距离
+    /*************************************************
+     * // ::::用于获得当前元素到定位父级（element.offsetParent）顶部的距离（偏移值）
+     * // ::::定位父级offsetParent 的定义是：与当前元素最近的 position != static 的父级元素。
+     *
+     * // ::::offset延伸知识点
+     *
+     * offsetWidth：
+     * 元素在水平方向上占用的空间大小：
+     * offsetWidth =  border-left + padding-left + width + padding-right + border-right
+     *
+     * offsetHeight：
+     * 元素在垂直方向上占用的空间大小：
+     * offsetHeight =  border-top + padding-top + height + padding-bottom + border-bottom
+     * ::::注意：  如果存在垂直滚动条，offsetWidth 也包括垂直滚动条的宽度；如果存在水平滚动条，offsetHeight 也包括水平滚动条的高度；
+     *
+     * offsetTop：
+     * 元素的上外边框至 offsetParent 元素的上内边框之间的像素距离；
+     *
+     * offsetLeft：
+     * 元素的左外边框至 offsetParent 元素的左内边框之间的像素距离；
+     *
+     ************************************************/
+    var otop = oDiv.offsetTop;
+    //页面滚动
+    window.onscroll = function() {
+        //获取页面的滚动距离
+        var oheight = document.documentElement.scrollTop || document.body.scrollTop;
+        // 滚动到一定位置 div固定到顶部 js实现吸顶
+        if (otop < oheight) {
+            oDiv.style.position = "fixed";
+            oDiv.style.top = 0;
+        } else {
+            oDiv.style.position = "relative";
+        }
+    }
+</script>

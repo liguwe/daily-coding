@@ -14,7 +14,7 @@ var str = `
 `
 
 function tmpl(str, data) {
-    //::: with(obj)
+    //:::: with(obj)
     var funStr = "var p = []; with(obj){p.push('" +
         str
             .replace(/[\r\t\n]/g, "")
@@ -24,7 +24,7 @@ function tmpl(str, data) {
         + "');}return p.join('');"
 
     console.log(funStr);
-    //:::  new Function([arg1[, arg2[, ...argN]],] functionBody) 构造函数，
+    //::::  new Function([arg1[, arg2[, ...argN]],] functionBody) 构造函数，
     var fn = new Function("obj",funStr);
 
     console.log(fn.call(this, data))

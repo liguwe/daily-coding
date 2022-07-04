@@ -1,0 +1,14 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev",
+    "build-h5": "npm run build --target=h5",
+    "build-wx": "npm run build --target=wx",
+    "build-alipay": "npm run build --target=alipay"
+  },
+  "author": "",
+  "license": "ISC"
+}

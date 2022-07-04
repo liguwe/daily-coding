@@ -8,7 +8,7 @@
 
 const createLoginLayer = (function () {
     let div;
-    //::: 返回一个函数，用闭包保存变量div，保证只有调用时才会访问
+    //:::: 返回一个函数，用闭包保存变量div，保证只有调用时才会访问
     return function () {
         if (!div) {
             div = document.createElement('div');

@@ -11,7 +11,7 @@ function fn(s, e) {
         let d = new Date(i);
         console.log(d.getFullYear());
         console.log(d.getMonth() + 1);
-        // todo 获取日期的方式是getDate()
+        //// ::::  获取日期的方式是getDate()
         console.log(d.getDate());
     }
 }

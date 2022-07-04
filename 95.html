@@ -1,0 +1,112 @@
+<!-- ::::吸顶，如何实现？ -->
+<!-- :::: 参考
+ https://juejin.cn/post/7019130496743374885
+:::: sticky：
+具体是类似 relative 和 fixed，在 viewport 视口滚动到阈值之前应用 relative，滚动到阈值之后应用 fixed 布局，由 top 决定。
+
+ -->
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    dl {
+        margin: 0;
+        padding: 24px 0 0 0;
+        /*::::  overflow 属性必须是 visible */
+        overflow: visible;
+
+    }
+
+    dt {
+        background: #B8C1C8;
+        border-bottom: 1px solid #989EA4;
+        border-top: 1px solid #717D85;
+        color: #FFF;
+        font: bold 18px/21px Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 2px 0 0 12px;
+
+        /*:::: 吸顶定位 */
+        /*:::: 设定为 position:sticky 元素的任意父节点的 overflow 属性必须是 visible */
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+
+    dd {
+        font: bold 20px/45px Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0 0 0 12px;
+        white-space: nowrap;
+    }
+
+    dd + dd {
+        border-top: 1px solid #CCC
+    }
+
+</style>
+
+<div>
+    <dl>
+        <dt>A</dt>
+        <dd>Andrew W.K.</dd>
+        <dd>Apparat</dd>
+        <dd>Arcade Fire</dd>
+        <dd>At The Drive-In</dd>
+        <dd>Aziz Ansari</dd>
+    </dl>
+    <dl>
+        <dt>C</dt>
+        <dd>Chromeo</dd>
+        <dd>Common</dd>
+        <dd>Converge</dd>
+        <dd>Crystal Castles</dd>
+        <dd>Cursive</dd>
+    </dl>
+    <dl>
+        <dt>E</dt>
+        <dd>Explosions In The Sky</dd>
+    </dl>
+    <dl>
+        <dt>T</dt>
+        <dd>Ted Leo & The Pharmacists</dd>
+        <dd>T-Pain</dd>
+        <dd>Thrice</dd>
+        <dd>TV On The Radio</dd>
+        <dd>Two Gallants</dd>
+    </dl>
+    <dl>
+        <dt>T</dt>
+        <dd>Ted Leo & The Pharmacists</dd>
+        <dd>T-Pain</dd>
+        <dd>Thrice</dd>
+        <dd>TV On The Radio</dd>
+        <dd>Two Gallants</dd>
+    </dl>
+    <dl>
+        <dt>T</dt>
+        <dd>Ted Leo & The Pharmacists</dd>
+        <dd>T-Pain</dd>
+        <dd>Thrice</dd>
+        <dd>TV On The Radio</dd>
+        <dd>Two Gallants</dd>
+    </dl>
+    <dl>
+        <dt>T</dt>
+        <dd>Ted Leo & The Pharmacists</dd>
+        <dd>T-Pain</dd>
+        <dd>Thrice</dd>
+        <dd>TV On The Radio</dd>
+        <dd>Two Gallants</dd>
+    </dl>
+    <dl>
+        <dt>T</dt>
+        <dd>Ted Leo & The Pharmacists</dd>
+        <dd>T-Pain</dd>
+        <dd>Thrice</dd>
+        <dd>TV On The Radio</dd>
+        <dd>Two Gallants111111</dd>
+    </dl>
+</div>

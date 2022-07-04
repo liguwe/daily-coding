@@ -53,14 +53,14 @@ class Login {
     }
 
     //静态方法: 获取实例(单例)
-    // :::我们调用Login.getInstance()实例化了一个登陆框，
-    // :::且在之后的点击中，并没有重新创建新的登陆框，只是移除掉了"display: none"这个样式来显示登陆框，节省了内存开销。
+    // ::::我们调用Login.getInstance()实例化了一个登陆框，
+    // ::::且在之后的点击中，并没有重新创建新的登陆框，只是移除掉了"display: none"这个样式来显示登陆框，节省了内存开销。
     static getInstance() {
 
         if (!this.instance) {
             this.instance = new Login();
         } else {
-            // ::: 移除遮罩层style, 用于显示遮罩层
+            // :::: 移除遮罩层style, 用于显示遮罩层
             this.getLoginDom('.mask-layer').removeAttribute('style');
         }
         return this.instance;

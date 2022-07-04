@@ -1,0 +1,23 @@
+<!-- ::::CSS实现自适应正方形、等宽高比矩形
+        ::::  伪元素设置 margin-top
+-->
+
+<body>
+<style>
+    .inner {
+        width: 100px;
+        overflow: hidden;
+        background: blue;
+    }
+    /*:::: :after 使用margin-top 撑起来 */
+    .inner::after {
+        content: "";
+        margin-top: 100%;
+        display: block;
+    }
+</style>
+<div class="outer">
+    <div class="inner"></div>
+</div>
+
+

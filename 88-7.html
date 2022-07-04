@@ -1,0 +1,42 @@
+<!-- :::: margin/padding百分比值的一个应用
+img { width: 100%; }，图片的高度不进行限定，由图片的内容去撑开，这样会出现 “闪烁”
+如下，使用伪类可以撑开！！，自适应
+ -->
+
+<div class="con">
+    <div class="container placeholder">
+        <img src="https://t7.baidu.com/it/u=4198287529,2774471735&fm=193&f=GIF"/>
+    </div>
+    <div class="container placeholder">
+        <img src="https://t7.baidu.com/it/u=4036010509,3445021118&fm=193&f=GIF"/>
+    </div>
+    <div class="container placeholder">
+        <img src="https://t7.baidu.com/it/u=4198287529,2774471735&fm=193&f=GIF"/>
+    </div>
+</div>
+
+<style>
+    .con {
+        display: flex;
+    }
+
+    .container {
+        display: inline-block;
+        position: relative;
+        background-color: pink;
+        overflow: hidden;
+        width: 400px;
+    }
+
+    .placeholder:after {
+        content: ' ';
+        display: block;
+        margin-top: 100%;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+</style>

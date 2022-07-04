@@ -1,0 +1,40 @@
+<!-- ::::实现三列布局的方式  -->
+<!-- ::::flex 布局  -->
+
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    div {
+        height: 100%;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .content {
+        flex: 1 1 auto;
+        order: 2;
+        background: #f00;
+    }
+
+    .left {
+        flex: 0 0 200px;
+        order: 1;
+        background: #0f0;
+    }
+
+    .right {
+        flex: 0 0 300px;
+        order: 3;
+        background: #00f;
+    }
+</style>
+<div class="container">
+    <div class="content">hello world</div>
+    <div class="left">你好</div>
+    <div class="right">王鹏浩</div>
+</div>

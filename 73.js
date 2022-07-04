@@ -43,14 +43,14 @@ let ss = [
 let res = [];
 
 
-// ::: 其实这里前序后续位置都行
+// :::: 其实这里前序后续位置都行
 function flatten(arr) {
     arr.forEach((item, index) => {
         if (item.children && item.children.length) {
-            // ::: 前序位置
+            // :::: 前序位置
             res.push(item)
             flatten(item.children)
-            // ::: 后序遍历
+            // :::: 后序遍历
             // res.push(item)
             delete item.children;
         } else {

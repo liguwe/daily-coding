@@ -1,0 +1,48 @@
+<!-- ::::实现三列布局的方式  -->
+<!-- ::::圣杯布局  -->
+
+<!-- ::::圣杯布局是中间栏在添加相对定位，并配合 left 和 right 属性，效果上表现为三栏是单独分开的  -->
+
+<style>
+    .container {
+        /*::::这里得给 浮动的位置空出位置来 */
+        padding: 0 300px 0 200px;
+        border: 1px solid black;
+    }
+    .content {
+        float: left;
+        width: 100%;
+        background: #f00;
+    }
+    .left {
+
+        /*::::当负值的 margin 的方向与浮动流方向一直时，则元素会往对应的方向移动对应的距离。*/
+        /*::::margin-left:-100%，所以直接盖住了最新渲染的content了  */
+        margin-left: -100%;
+        float: left;
+        width: 200px;
+        left: -200px;
+        background: #0f0;
+        position: relative;
+    }
+    .right {
+
+        position: relative;
+        /*::::当负值的 margin 的方向与浮动流方向一直时，则元素会往对应的方向移动对应的距离。*/
+        width: 300px;
+        float: left;
+        margin-left: -300px;
+        right: -300px;
+        background: #00f;
+
+
+    }
+</style>
+<div class="container">
+    <!-- ::::中间内容放在最上面，保证先渲染 -->
+    <div class="content">中间内容</div>
+    <div class="left">左侧区域</div>
+    <div class="right">右侧区域</div>
+</div>
+
+

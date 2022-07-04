@@ -1,0 +1,66 @@
+<!-- :::: 用css2和css3分别写一下垂直居中和水平居中 -->
+
+<!-- ::::图片和其他元素使用 display: table-cell; 进行垂直居中-->
+
+<style>
+    .outer {
+        width: 400px;
+        height: 600px;
+        border: 1px solid red;
+        background-color: transparent;
+        /*:::: 这里设置 */
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .inner {
+        background: red;
+        width: 200px;
+        height: 300px;
+        border: 1px solid blue;
+        margin: 0 auto;
+    }
+
+    .img-con {
+        width: 600px;
+        height: 600px;
+        line-height: 600px;
+        background-color: #000088;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .img {
+        vertical-align: middle
+    }
+</style>
+<div class="outer">
+    <div class="inner">我想居中显示</div>
+</div>
+
+
+<!-- ::::图片水平垂直居中 -->
+
+<style>
+    #app {
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        text-align: center
+    }
+
+    /*::::关键是这儿*/
+    span {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle
+    }
+
+    img {
+        vertical-align: middle
+    }
+</style>
+<div id="app">
+    <span></span>
+    <img class="img" height="300" src="https://t7.baidu.com/it/u=4036010509,3445021118&fm=193&f=GIF">
+</div>
