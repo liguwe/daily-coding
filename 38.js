@@ -1,5 +1,5 @@
 /**
- * 第 92 题：已知数据格式，实现一个函数 fn 找出链条中所有的父级 id #143
+ * 已知数据格式，实现一个函数 fn 找出链条中所有的父级 id
  * */
 
 const data = [{
@@ -41,21 +41,25 @@ const data = [{
 // TODO 和其他遍历区别在于最外层就是一个数组
 const fn = (data, value) => {
     let result = [];
+
+    // ::::深度遍历
     function dfs(data, res = []) {
         for (let item of data) {
             if (item.id === value) {
                 res.push(item.id);
-                // todo 这里需要注意，一定要浅拷贝下，否则后面又会被清除掉了
+                // // ::::这里需要注意，一定要浅拷贝下，否则后面又会被清除掉了
                 result = [...res];
                 // TODO 和其他遍历区别在于最外层就是一个数组，所以这里返回也没有人接受啊？
                 return;
             } else if (item.children) {
+                // ::::push 与 pop
                 res.push(item.id);
                 dfs(item.children, res);
                 res.pop();
             }
         }
     }
+
     dfs(data)
     return result;
 }

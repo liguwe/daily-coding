@@ -20,6 +20,8 @@ window.addEventListener('DOMContentLoaded', onLoad)
 // 监听路由变化
 window.addEventListener('hashchange', onHashChange)
 
+
+
 // 路由视图
 var routerView = null
 
@@ -42,3 +44,6 @@ function onHashChange () {
             return
     }
 }
+
+
+到到扥疯狂将复垦的发肯江肯就疯狂将疯狂肯江肯近况反就框架反动将疯狂反动肯SDK反动反动啃囧交付但森江苏

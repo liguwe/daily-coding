@@ -19,6 +19,7 @@ function fn(str) {
         if (index === 0) {
             // TODO 关键
             res.value = item;
+            // ::::我交给你，你引用我去造吧！
             temp = res;
         } else {
             temp.children = {}

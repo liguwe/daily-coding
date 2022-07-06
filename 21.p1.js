@@ -1,11 +1,11 @@
 /**
- * 第 125 题：如何将 [{id: 1}, {id: 2, pId: 1}, ...] 的重复数组（有重复数据）
+ * 如何将 [{id: 1}, {id: 2, pId: 1}, ...] 的重复数组（有重复数据）
  * 转成树形结构的数组 [{id: 1, child: [{id: 2, pId: 1}]}, ...] （需要去重） #243
  * */
 
 // 已经去重了
 let arr = [
-    {id: 1},
+    {id: 1,pid:0},
     {id: 2, pid: 1},
     {id: 3, pid: 2},
     {id: 4, pid: 1},
@@ -13,7 +13,7 @@ let arr = [
     {id: 6, pid: 2}
 ];
 
-// ::::关键，是传两个参数
+// ::::最最最关键的，是传两个参数
 function fn(array, pid) {
     let trees = [];
     for (let item of array) {
@@ -29,7 +29,7 @@ function fn(array, pid) {
     return trees;
 }
 
-let r = fn(arr, 1);
+let r = fn(arr, 0);
 console.log(r);
 console.log(JSON.stringify(r));
 

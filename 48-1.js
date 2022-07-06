@@ -30,7 +30,7 @@ function fn(nums) {
 
     function backtrack(nums, index, track, res) {
         /**
-         * 满足条件
+         * 满足条件<
          * */
         if (Array.isArray(track)) {
             res.push([...track]);
