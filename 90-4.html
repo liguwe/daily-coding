@@ -1,13 +1,23 @@
 <!-- ::::问：实现两栏布局的方式： -->
 <!-- :::: 都float:left 就直接换行了  -->
+
+
+<!-- ::::试了下，不行的啊！！！！  -->
 <head>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         .left {
             width: 100%;
             float: left;
             background: #f00;
+            /*::::margin-let*/
             /*margin-right: -200px;*/
         }
+
         .right {
             float: left;
             width: 200px;
@@ -15,7 +25,7 @@
         }
     </style>
 </head>
-
 <div class="left"><p>hello</p></div>
 <div class="right"><p>world</p></div>
+
 

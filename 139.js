@@ -10,7 +10,7 @@ function cycle(obj, parent) {
     // ::::关键
     var parentArr = parent || [obj];
     // ::::然后遍历，递归
-    for (var i in obj) {
+    for (let i in obj) {
         if (typeof obj[i] === "object") {
             // 判断是否有循环引用
             parentArr.forEach((pObj) => {

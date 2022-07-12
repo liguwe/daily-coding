@@ -36,10 +36,11 @@ function fn2(fn, ms) {
 function fn3(fn, ms) {
     let id = null;
     return (...args) => {
-        // TODO 关键是变量ID，延迟回调就 id = null，否则就不能执行
+        //// :::: 关键是变量ID，延迟回调就 id = null，否则就不能执行
         // 这个是
         if (!id) {
             id = setTimeout(() => {
+                // ::::这里赋值为null
                 id = null;
                 fn.apply(this, args);
             }, ms)

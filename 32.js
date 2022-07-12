@@ -37,7 +37,7 @@ Promise._all = (tasks) => {
         }
         for (let i = 0; i < arr.length; i++) {
             Promise.resolve(arr[i]).then(res => {
-                // todo 这里是关键逻辑
+                //// ::::这里是关键逻辑
                 result[i] = res //将每次结果保存在result数组中
                 count++  //个数加1
                 //是否所有的promise都进入fullfilled状态

@@ -1,18 +1,5 @@
-/*************************************************
- * 链表反转序列
- ************************************************/
-/**
- * Definition for singly-linked list.
- */
-function ListNode(val, next) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
-}
 
-/**
- * 反转单链表:https://leetcode.cn/problems/reverse-linked-list/
- * todo 再写一遍，只是看到时肯定还是写不出来的
- * */
+// 反转单链表
 function reverseList(head) {
     let p = head;
     if (p && p.next !== null) {
@@ -23,11 +10,7 @@ function reverseList(head) {
     head.next = null;
     return last;
 }
-
-/**
- * 反转单链表前N个节点
- * todo 再写一遍，只是看到时肯定还是写不出来的
- * */
+// 反转单链表前N个节点
 var reverseN = function (head, n) {
     let successor = null; // 后驱节点
     // base case
@@ -41,11 +24,7 @@ var reverseN = function (head, n) {
     head.next = successor;  //
     return last;
 };
-/**
- * 反转指定的区间
- * https://leetcode.cn/problems/reverse-linked-list-ii/submissions/
- * TODO LeetCode 不通过
- * */
+// 反转指定的区间
 var reverseBetween = function (head, m, n) {
     // base case
     if (m === 1) {

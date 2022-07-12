@@ -7,7 +7,7 @@
 // 1、从 rgb(255, 255, 255) 中提取出 r=255 、 g=255 、 b=255
 let s = 'rgb(1, 2, 3)';
 let reg = /[rgb|RGB]/g
-let m = s.replace(reg, '').split(/[\(\),]/).filter(Boolean).map(Number);
+let m = s.replace(reg, '').split(/[\(\),]/g).filter(Boolean).map(Number);
 console.log(m);
 
 // 2、将 r 、 g 、 b 转换为十六进制，不足两位则补零

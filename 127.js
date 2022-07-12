@@ -24,7 +24,7 @@ const findFromEnd = function (head, k) {
     }
     return p2;
 }
-
+// 删除链表中第K节点
 var removeNthFromEnd = function (head, k) {
     // 虚拟头结点
     let p = new ListNode(-1);

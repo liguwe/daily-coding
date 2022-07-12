@@ -26,7 +26,7 @@ var output = {
 function fn(obj) {
     let res = {};
 
-    function trasverse(obj, keys) {
+    function traverse(obj, keys) {
         //::::基准条件
         if(typeof obj === 'string'){
             res[keys.join('.')] = obj;
@@ -34,12 +34,12 @@ function fn(obj) {
         }
         Object.entries(obj).forEach(([k, v]) => {
             keys.push(k);
-            trasverse(v,keys);
+            traverse(v,keys);
             keys.pop();
         })
     }
 
-    trasverse(obj, []);
+    traverse(obj, []);
 
     console.log(res);
     return res;

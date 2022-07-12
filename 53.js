@@ -51,7 +51,6 @@ const twoSum = function (nums, target) {
         }
     }
     return res;
-    console.log(res);
 };
 
 export default twoSum;

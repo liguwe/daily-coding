@@ -8,7 +8,6 @@ let storages = ['64g', '256g']
 
 
 let combine = function (...chunks) {
-
     let res = [];
     const backtrack = (arr, track, index) => {
         let options = arr[index];
@@ -24,9 +23,7 @@ let combine = function (...chunks) {
             track.pop();
         }
     }
-
     backtrack(chunks, [], 0)
-
     return res
 }
 

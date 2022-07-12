@@ -8,13 +8,10 @@ function add(...args) {
         vars = [...vars,...args2];
         return curry;
     }
-
     curry.sumof = () => {
         return vars;
     }
-
     return curry(...args);
-
 }
 
 console.log(add(1)(2)(3,4).sumof())

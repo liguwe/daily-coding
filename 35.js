@@ -4,7 +4,7 @@
 
 async function async1() {
     console.log('2');
-    //TODO 会直接执行
+    //// ::::会直接执行
     await async2();
     console.log('6');
 }

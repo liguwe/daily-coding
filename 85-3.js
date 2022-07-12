@@ -24,7 +24,7 @@ function fn1(root, p, q) {
     return find(root, v1, v2);
 }
 
-// ::::假设val1 < val2，那么val1 <= root.val <= val2则说明当前节点就是LCA；
+// ::::假设val1 < val2，那么 val1 <= root.val <= val2  则说明当前节点就是LCA；
 //  ::::若root.val比val1还小，则需要去值更大的右子树寻找LCA；
 //  ::::若root.val比val2还大，则需要去值更小的左子树寻找LCA。
 function find(root, v1, v2) {

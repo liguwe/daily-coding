@@ -51,6 +51,7 @@ function fn(str) {
         let b = res[i + 1];
         if (b && b > a) {
             val += b - a;
+            // ::::这里很关键，直接i++跳过了
             i++;
         } else {
             val += a;

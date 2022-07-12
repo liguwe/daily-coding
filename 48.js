@@ -66,9 +66,7 @@ var fn = function (s) {
     }
 
     backtrack(s,track,res);
-
     console.log(res);
-
     return res;
 };
 

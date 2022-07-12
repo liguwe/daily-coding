@@ -16,9 +16,7 @@
  * 输出：[1,2]
  * 解释：-1 与 0 之和等于目标数 -1 。因此 index1 = 1, index2 = 2 。返回 [1, 2] 。
  *
- * 来源：力扣（LeetCode）
  * 链接：https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * */
 
 // 双指针
@@ -27,13 +25,13 @@ export default function fn(nums, target) {
     let res = [];
     let l = 0;
     let r = nums.length - 1;
-    //TODO 一定要记住，while这里的条件是满足，而不是不满足！！！！
+    //// ::::一定要记住，while这里的条件是满足，而不是不满足！！！！
     while (l < r) {
-        // TODO 变量提出来，写的都快写
+        // // ::::变量提出来，写的都快写
         let sum = nums[l] + nums[r];
         if (sum === target) {
             res.push([nums[l], nums[r]])
-            //TODO 只找一个话这里 return就好了
+            //// ::::只找一个话这里 return就好了
             l++;
             r--;
         } else if (sum < target) {

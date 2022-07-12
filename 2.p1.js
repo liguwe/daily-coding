@@ -9,6 +9,7 @@ let a = [1, 2, 3, 4, 5];
 
 function fn1(arr) {
     let r = arr.length - 1;
+    // ::::倒着遍历
     while (r > -1) {
         console.log(r);
         let random = Math.floor(Math.random() * r);

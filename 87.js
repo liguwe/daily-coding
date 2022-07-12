@@ -16,7 +16,6 @@ console.log(arr); // ['4.3.5','4.3.4.5','2.3.3','0.302.1','0.1.1']
 //// ::::方法三： ，遍历，自己实现吧
 
 function fn1(arr) {
-
     let maxLen = 0;
     arr = arr.map((item) => {
         let a = item.split('.');
@@ -37,7 +36,6 @@ function fn1(arr) {
         }
         return res;
     })
-
     console.log(arr);
 
 }

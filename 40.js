@@ -7,9 +7,7 @@
  * https://muyiy.cn/question/program/54.html
  * */
 
-function swap(arr, i, j) {
-    [arr[j], arr[j]] = [arr[j], arr[i]];
-}
+
 
 function fn(arr) {
     let len = arr.length;
@@ -32,12 +30,10 @@ function fn(arr) {
 let arr1 = [1, 3, 7, 2, 9, 6];
 console.log(fn(arr1))
 
-// 改进的优化
-// TODO 每次最大值放到最右后，会将本轮最后一个操作的位置作为下一轮的终点，
-// TODO 可以减少不必要的一些冒泡
+// ::::每次最大值放到最右后，会将本轮最后一个操作的位置作为下一轮的终点，
+// :::: 可以减少不必要的一些冒泡
 function fn1(arr) {
     let i = arr.length - 1;
-
     while (i > 0) {
         let pos = 0;
         for (let j = 0; j < i; j++) {

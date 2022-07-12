@@ -52,7 +52,7 @@ const left = (nums, target) => {
         } else if (nums[mid] > target) {
             right = mid - 1;
         } else if (nums[mid] === target) {
-            // 别返回，锁定左侧边界
+            ////::::别返回，锁定左侧边界
             right = mid - 1;
         }
     }
@@ -76,7 +76,7 @@ const right = (nums, target) => {
         } else if (nums[mid] > target) {
             right = mid - 1;
         } else if (nums[mid] === target) {
-            // 别返回，锁定右侧边界
+            //::::别返回，锁定右侧边界
             left = mid + 1;
         }
     }

@@ -1,7 +1,7 @@
 /**
  * 给你一个整数数组 nums 和一个整数k ，请你统计并返回 该数组中和为k的子数组的个数。
  *
- * TODO 子数组，的概念需要注意！！！
+ * // :::: 子数组，的概念需要注意！！！
  *
  * 示例 1：
  *
@@ -62,7 +62,6 @@ function fn(nums, k) {
             map[pre] = 1;
         }
     }
-    console.log(count)
     return count;
 }
 

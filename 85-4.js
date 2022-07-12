@@ -25,16 +25,13 @@
 function fn1(p, q) {
     let a = p;
     let b = q;
-
     while (a !== b) {
         // a 走一步，如果走到根节点，转到 q 节点
         if (a == null) a = q;
         else a = a.parent;
-
         // b 走一步，如果走到根节点，转到 p 节点
         if (b == null) b = p;
         else b = b.parent;
     }
-
     return a;
 }
