@@ -25,7 +25,6 @@ var tree = {
 
 function howOld(name, tree) {
     let res = null;
-
     function dfs(tree, name) {
         for (const item of tree) {
             if (item.name === name) {
@@ -37,7 +36,6 @@ function howOld(name, tree) {
             }
         }
     }
-
     dfs([tree], name);
     return res;
 }
