@@ -1,5 +1,5 @@
 /**
- * 第 112 题：编程题，写个程序把 entry 转换成如下对象 #212
+ * 写个程序把 entry 转换成如下对象 #212
  * */
 var entry = {
     'a.b.c.dd': 'abcdd',
@@ -39,7 +39,9 @@ function fn(obj) {
             return prev[next];
         }, res)
     })
-    console.log('res:', JSON.stringify(res));
+
+    return res;
+    // console.log('res:', JSON.stringify(res));
 }
 
 fn(entry)
