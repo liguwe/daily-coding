@@ -51,7 +51,6 @@ function flatten(arr) {
             res.push(item)
             flatten(item.children)
             // :::: 后序遍历
-            // res.push(item)
             delete item.children;
         } else {
             res.push(item)
