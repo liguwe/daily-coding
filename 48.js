@@ -38,7 +38,6 @@ var fn = function (s) {
         /**
          * 满足条件
          * */
-        // console.log(track);
         if (track.length === 4 && s.length === 0) {
             res.push(track.join('.'));
             return;
