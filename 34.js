@@ -2,25 +2,21 @@
  * 输入顺序
  * */
 new Promise((resolve, reject)=>{
-    reject(1);
-    console.log(2);
+    reject(3);
+    console.log(1);
 }).catch((err)=>{
-    console.log('err:',err)
-    console.log(3)
+    console.log(err);
+    console.log(4)
 }).then(
-    ()=>{console.log(4)},
+    ()=>{console.log(5)},
     (v)=>{console.log(v,'v')},
 ).then(
     console.log
 )
 
-console.log(5);
+console.log(2);
 
-// 2
-// 5
-// err: 1
-// 3
-// 4
+
 
 setTimeout(()=>{
 

@@ -6,14 +6,17 @@
  * */
 
 const add = (...args) => {
-    let vars = []
+    let vars = [];
+
+    // 写一个函数，形成闭包
     const curried = (...arg2) => {
         // ::::这里 vars,记住了
-        vars = [...vars, ...arg2]
+        vars = [...vars, ...arg2];
         return curried
     }
+
     curried.sumof = () => {
-        // todo做你想做的事情
+        //todo 做你想做的事情
         return vars;
     }
     return curried(...args)

@@ -14,17 +14,12 @@ Promise._all = function (tasks) {
                 reject(e);
             })
         }
-
     })
 }
-
-
 Promise._race = function (tasks) {
-
     let res = [];
     let c = 0;
     return new Promise((resolve, reject) => {
-
         for (let item of tasks) {
             Promise.resolve(item).then((r) => {
                     return resolve(r);
@@ -33,6 +28,5 @@ Promise._race = function (tasks) {
                 reject(e);
             })
         }
-
     })
 }
