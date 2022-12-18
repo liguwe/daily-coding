@@ -1,6 +1,5 @@
 <!-- ::::实现三列布局的方式  -->
 <!-- ::::position + margin-left + margin-right  -->
-
 <style>
     div {
         height: 500px;
@@ -8,7 +7,6 @@
     .box {
         position: relative;
     }
-
     .left {
         position: absolute;
         left: 0;
@@ -16,7 +14,6 @@
         width: 200px;
         background: green;
     }
-
     .right {
         position: absolute;
         right: 0;
@@ -24,7 +21,6 @@
         width: 200px;
         background: red;
     }
-
     .middle {
         /*::::因为left/right 都绝对定位脱离文档流了 */
         margin-left: 200px;
