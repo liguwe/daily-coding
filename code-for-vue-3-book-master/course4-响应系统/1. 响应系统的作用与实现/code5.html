@@ -1,0 +1,37 @@
+<body></body>
+<script>
+    let obj1 = {}
+    let obj2 = {}
+
+    const wm = new WeakMap()
+    wm.set(obj1, 1)
+
+    const m = new Map()
+    m.set(obj2, 2)
+
+    console.log(wm);
+    console.log(m);
+
+    obj1 = null;
+    obj2 = null;
+
+    console.log(wm);
+    console.log(m);
+
+    //
+    // const mp = new WeakMap();
+    // const m = new Map();
+    //
+    // (function () {
+    //     const a = {m: 1};
+    //     const b = {mp: 2};
+    //
+    //     mp.set(a, 1);
+    //     m.set(b, 2);
+    //
+    // })();
+    //
+    // console.log(m.keys()); // MapIterator{Object {b: 2}}
+    // console.log(mp);
+
+</script>
