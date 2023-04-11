@@ -76,7 +76,6 @@ function effect(fn, options = {}) {
     // 在当前副作用函数执行完毕后，将当前副作用函数弹出栈，并还原 activeEffect 为之前的值
     effectStack.pop()
     activeEffect = effectStack[effectStack.length - 1]
-
     return res
   }
   // 将 options 挂在到 effectFn 上
@@ -104,31 +103,32 @@ function cleanup(effectFn) {
 
 // =========================
 
+// ::::传入一个Getter函数，返回一个对象，对象的 value 属性是函数的返回值
+// :::: 知道为啥 使用 vue 计算属性时，一定要使用value属性来获取值了吧
 function computed(getter) {
   let value
   let dirty = true
-
   const effectFn = effect(getter, {
     lazy: true,
     scheduler() {
       if (!dirty) {
-        dirty = true
+        dirty = true;
+        // ::::手动触发响应
         trigger(obj, 'value')
       }
     }
   })
-  
   const obj = {
     get value() {
       if (dirty) {
         value = effectFn()
         dirty = false
       }
+      // ::::执行到这里，说明读取了 value 属性，调用 track 函数，收集依赖
       track(obj, 'value')
       return value
     }
   }
-
   return obj
 }
 

@@ -113,7 +113,6 @@ function traverse(value, seen = new Set()) {
 
   return value
 }
-
 function watch(source, cb, options = {}) {
   let getter
   if (typeof source === 'function') {
@@ -121,25 +120,22 @@ function watch(source, cb, options = {}) {
   } else {
     getter = () => traverse(source)
   }
-
   let oldValue, newValue
-
   let cleanup
   function onInvalidate(fn) {
     cleanup = fn
   }
-
   const job = () => {
     newValue = effectFn()
+      // ::::每当 watch 回调执行前，会优先执行用户传入的 onInvalidate 函数
     if (cleanup) {
       cleanup()
     }
+    // :::: 传入 onInvalidate 函数，用来注册过期函数
     cb(oldValue, newValue, onInvalidate)
     oldValue = newValue
   }
-
   const effectFn = effect(
-    // 执行 getter
     () => getter(),
     {
       lazy: true,
@@ -153,7 +149,6 @@ function watch(source, cb, options = {}) {
       }
     }
   )
-  
   if (options.immediate) {
     job()
   } else {
@@ -175,14 +170,12 @@ function fetch() {
 let finallyData
 
 watch(() => obj.foo, async (newVal, oldVal, onInvalidate) => {
-  let valid = true
+  let valid = true; //// :::: 标识是否过期或者有效
   onInvalidate(() => {
     valid = false
   })
   const res = await fetch()
-
   if (!valid) return
-
   finallyData = res
   console.log(finallyData)
 })

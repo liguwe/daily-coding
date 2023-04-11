@@ -106,36 +106,35 @@ function cleanup(effectFn) {
 
 function traverse(value, seen = new Set()) {
   if (typeof value !== 'object' || value === null || seen.has(value)) return
-  seen.add(value)
+  seen.add(value) // ::::set 用来去重,标识读取过了，避免死循环
+    // ::::未考虑数组等其他数据情况
   for (const k in value) {
     traverse(value[k], seen)
   }
-
   return value
 }
 
 function watch(source, cb, options = {}) {
-  let getter
-  if (typeof source === 'function') {
+  let getter;
+  if (typeof source === 'function') {// ::::可接受函数，自己经常这么使用
     getter = source
-  } else {
+  } else {// :::: 需要递归遍历了
     getter = () => traverse(source)
   }
-
+  // ::::回调参数里可以拿到旧值和新值
   let oldValue, newValue
-
   const job = () => {
     newValue = effectFn()
     cb(oldValue, newValue)
     oldValue = newValue
   }
-
   const effectFn = effect(
-    // 执行 getter
-    () => getter(),
+    () => getter(),// 执行 getter
     {
       lazy: true,
       scheduler: () => {
+        // :::: 使用flush参数控制回调的执行时机：pre/post/sync 三种
+          // ::::本质是使用调度器函数 scheduler 和 微任务队列 来实现的
         if (options.flush === 'post') {
           const p = Promise.resolve()
           p.then(job)
@@ -145,7 +144,7 @@ function watch(source, cb, options = {}) {
       }
     }
   )
-  
+  // ::::::immediate 为 true 时，会在 watch 创建时，立即执行一次回调
   if (options.immediate) {
     job()
   } else {
