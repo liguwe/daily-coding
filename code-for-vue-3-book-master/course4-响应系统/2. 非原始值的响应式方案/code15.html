@@ -1,4 +1,4 @@
-<body></body>
+w<body></body>
 <script>
 
 
@@ -12,16 +12,12 @@ function reactive(obj) {
 function shallowReactive(obj) {
   return createReactive(obj, true)
 }
-
 function readonly(obj) {
   return createReactive(obj, false, true)
 }
-
 function shallowReadonly(obj) {
   return createReactive(obj, true, true)
 }
-
-
 function createReactive(obj, isShallow = false, isReadonly = false) {
   return new Proxy(obj, {
     // 拦截读取操作
@@ -30,23 +26,18 @@ function createReactive(obj, isShallow = false, isReadonly = false) {
       if (key === 'raw') {
         return target
       }
-
       // 非只读的时候才需要建立响应联系
       if (!isReadonly && typeof key !== 'symbol') {
         track(target, key)
       }
-
       const res = Reflect.get(target, key, receiver)
-
       if (isShallow) {
         return res
       }
-
       if (typeof res === 'object' && res !== null) {
         // 深只读/响应
         return isReadonly ? readonly(res) : reactive(res)
       }
-
       return res
     },
     // 拦截设置操作
@@ -122,7 +113,7 @@ function trigger(target, key, type, newVal) {
       effectsToRun.add(effectFn)
     }
   })
-  
+
   if (type === 'ADD' || type === 'DELETE') {
     const iterateEffects = depsMap.get(ITERATE_KEY)
     iterateEffects && iterateEffects.forEach(effectFn => {

@@ -1,7 +1,6 @@
 <div id="app"></div>
 
 <div data-a="3" mmm="asdf" draggable="true"></div>
-
 <form id="aaa"></form>
 <input value="aaa" form="aaa" />
 
@@ -72,7 +71,7 @@ function createRenderer(options) {
     // 把 vnode 存储到 container._vnode 下，即后续渲染中的旧 vnode
     container._vnode = vnode
   }
-  
+
   return {
     render
   }

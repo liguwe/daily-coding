@@ -1,9 +1,8 @@
 <div id="app"></div>
-
 <script src="https://unpkg.com/@vue/reactivity@3.0.5/dist/reactivity.global.js"></script>
 <script>
 
-const { effect, ref } = VueReactivity
+const { effect, ref } = VueReactivity; // ::::暴露的全局 API
 
 function renderer(domString, container) {
   container.innerHTML = domString
@@ -17,6 +16,8 @@ effect(() => {
 
 count.value++
 
-
+setTimeout(() => {
+count.value++;
+},2000)
 
 </script>

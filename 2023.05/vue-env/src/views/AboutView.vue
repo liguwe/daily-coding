@@ -13,3 +13,21 @@
   }
 }
 </style>
+
+<script>
+import {reactive, effect} from "@vue/reactivity";
+
+const obj = {foo: 1};
+effect(() => {
+  console.log('effect', obj.foo)
+})
+const p = reactive(obj);
+p.foo = 2;
+
+
+setTimeout(() => {
+  p.foo = 3;
+}, 1000)
+// console.log('p.foo', p.foo)
+
+</script>

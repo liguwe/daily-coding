@@ -1,8 +1,6 @@
 <div id="app"></div>
-
 <script src="https://unpkg.com/@vue/reactivity@3.0.5/dist/reactivity.global.js"></script>
 <script>
-
     function createRenderer(options) {
 
         const {
@@ -13,11 +11,21 @@
 
         function mountElement(vnode, container) {
             const el = createElement(vnode.type)
-
             if (typeof vnode.children === 'string') {
                 setElementText(el, vnode.children)
+                // :::::::::递归渲染子节点即可
+            } else if (Array.isArray(vnode.children)) {
+                vnode.children.forEach(child => {
+                    patch(null, child, el)
+                })
             }
-
+            // :::::::::设置属性
+            if (vnode.props) {
+                for (const key in vnode.props) {
+                    el.setAttribute(key, vnode.props[key])
+                }
+            }
+            // ::插入到容器中
             insert(el, container)
         }
 
@@ -25,7 +33,7 @@
             if (!n1) {
                 mountElement(n2, container)
             } else {
-                //
+                // // ::::补丁逻辑
             }
         }
 
@@ -48,7 +56,6 @@
             render
         }
     }
-
     const renderer = createRenderer({
         createElement(tag) {
             return document.createElement(tag)
@@ -60,19 +67,32 @@
             parent.insertBefore(el, anchor)
         }
     })
-
     const vnode = {
         type: 'div',
-        children: 'text'
+        props: {
+            id: 'foo'
+        },
+        children: [
+            {
+                type: 'p',
+                children: 'p tag'
+            },
+            {
+                type: 'h1',
+                children: 'H1 tag'
+            },
+            {
+                type: 'div',
+                children: [
+                    {
+                        type: 'span',
+                        children: 'div > span > tag'
+                    }
+                ]
+            }
+        ]
     }
-
-    const Text = Symbol()
-    const text = {
-        type: Text,
-        children: '我是文本节点'
-    }
-
-    renderer.render(text, document.querySelector('#app'))
+    renderer.render(vnode, document.querySelector('#app'));
 
 
 </script>
