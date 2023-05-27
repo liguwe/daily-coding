@@ -63,7 +63,7 @@ function createRenderer(options) {
     // 把 vnode 存储到 container._vnode 下，即后续渲染中的旧 vnode
     container._vnode = vnode
   }
-  
+
   return {
     render
   }
@@ -81,7 +81,8 @@ const renderer = createRenderer({
   },
   patchProps(el, key, preValue, nextValue) {
     if (shouldSetAsProps(el, key, nextValue)) {
-      const type = typeof el[key]
+      const type = typeof el[key];
+      // 兼容 el.disabled = false 这种情况, 以及 el.disabled = '' 这种情况
       if (type === 'boolean' && nextValue === '') {
         el[key] = true
       } else {

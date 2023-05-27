@@ -1,8 +1,6 @@
-/**
- * https://leetcode.cn/problems/n-queens/
- * */
-let solveNQueens = function (n) {
-    let res = [];
+
+let totalNQueens = function (n) {
+    let res = 0;
     let board = Array.from({length: n}, () => Array(n).fill('.'));
     /**
      * @param board 棋盘二维数组
@@ -11,9 +9,7 @@ let solveNQueens = function (n) {
     let backtrack = function (board, row) {
         // :::: 满足结束条件, 即已经放置了 n 个皇后
         if (row === board.length) {
-            // 看题设，需要输出这样的格式
-            const item = board.map((row) => row.join(''));
-            res.push(item);
+            res++;
             return;
         }
         // :::: 从选择列表中选择,这里的选择列表是【二维数组的第 row 行】
