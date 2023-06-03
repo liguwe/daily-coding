@@ -57,44 +57,45 @@ function createRenderer(options) {
   function patchKeyedChildren(n1, n2, container) {
     const oldChildren = n1.children
     const newChildren = n2.children
-    
     let oldStartIdx = 0
     let oldEndIdx = oldChildren.length - 1
     let newStartIdx = 0
     let newEndIdx = newChildren.length - 1
-
     let oldStartVNode = oldChildren[oldStartIdx]
     let oldEndVNode = oldChildren[oldEndIdx]
     let newStartVNode = newChildren[newStartIdx]
     let newEndVNode = newChildren[newEndIdx]
-
     while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
       if (!oldStartVNode) {
         oldStartVNode = oldChildren[++oldStartIdx]
-      } else if (!oldEndVNode) {
+      }
+      else if (!oldEndVNode) {
         oldEndVNode = newChildren[--oldEndIdx]
-      } else if (oldStartVNode.key === newStartVNode.key) {
+      }
+      else if (oldStartVNode.key === newStartVNode.key) {
         patch(oldStartVNode, newStartVNode, container)
         oldStartVNode = oldChildren[++oldStartIdx]
         newStartVNode = newChildren[++newStartIdx]
-      } else if (oldEndVNode.key === newEndVNode.key) {
+      }
+      else if (oldEndVNode.key === newEndVNode.key) {
         patch(oldEndVNode, newEndVNode, container)
         oldEndVNode = oldChildren[--oldEndIdx]
         newEndVNode = newChildren[--newEndIdx]
-      } else if (oldStartVNode.key === newEndVNode.key) {
+      }
+      else if (oldStartVNode.key === newEndVNode.key) {
         patch(oldStartVNode, newEndVNode, container)
         insert(oldStartVNode.el, container, newEndVNode.el.nextSibling)
-
         oldStartVNode = oldChildren[++oldStartIdx]
         newEndVNode = newChildren[--newEndIdx]
-      } else if (oldEndVNode.key === newStartVNode.key) {
+      }
+      else if (oldEndVNode.key === newStartVNode.key) {
         // 步骤四：oldEndVNode 和 newStartVNode 比对
         patch(oldEndVNode, newStartVNode, container)
         insert(oldEndVNode.el, container, oldStartVNode.el)
-
         oldEndVNode = oldChildren[--oldEndIdx]
         newStartVNode = newChildren[++newStartIdx]
-      } else {
+      }
+      else {
         // 遍历旧 children，试图寻找与 newStartVNode 拥有相同 key 值的元素
         const idxInOld = oldChildren.findIndex(
           node => node.key === newStartVNode.key
@@ -106,7 +107,6 @@ function createRenderer(options) {
           oldChildren[idxInOld] = undefined
           newStartVNode = newChildren[++newStartIdx]
         }
-
       }
     }
   }
@@ -115,7 +115,7 @@ function createRenderer(options) {
     const el = n2.el = n1.el
     const oldProps = n1.props
     const newProps = n2.props
-    
+
     for (const key in newProps) {
       if (newProps[key] !== oldProps[key]) {
         patchProps(el, key, oldProps[key], newProps[key])
@@ -187,7 +187,7 @@ function patch(n1, n2, container, anchor) {
     // 把 vnode 存储到 container._vnode 下，即后续渲染中的旧 vnode
     container._vnode = vnode
   }
-  
+
   return {
     render
   }

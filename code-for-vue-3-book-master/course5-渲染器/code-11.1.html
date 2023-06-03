@@ -57,7 +57,8 @@ function createRenderer(options) {
   function patchKeyedChildren(n1, n2, container) {
     const newChildren = n2.children
     const oldChildren = n1.children
-    // 更新相同的前缀节点
+
+    //// :::: 更新相同的前缀节点
     // 索引 j 指向新旧两组子节点的开头
     let j = 0
     let oldVNode = oldChildren[j]
@@ -71,7 +72,7 @@ function createRenderer(options) {
       newVNode = newChildren[j]
     }
 
-    // 更新相同的后缀节点
+    // // :::: 更新相同的 后缀节点
     // 索引 oldEnd 指向旧的一组子节点的最后一个节点
     let oldEnd = oldChildren.length - 1
     // 索引 newEnd 指向新的一组子节点的最后一个节点
@@ -91,6 +92,7 @@ function createRenderer(options) {
     }
 
     // 满足条件，则说明从 j -> newEnd 之间的节点应作为新节点插入
+      // ::::新增节点
     if (j > oldEnd && j <= newEnd) {
       // 锚点的索引
       const anchorIndex = newEnd + 1
@@ -100,7 +102,9 @@ function createRenderer(options) {
       while (j <= newEnd) {
         patch(null, newChildren[j++], container, anchor)
       }
-    } else if (j > newEnd && j <= oldEnd) {
+    }
+    // ::::删除节点
+    else if (j > newEnd && j <= oldEnd) {
       // j -> oldEnd 之间的节点应该被卸载
       while (j <= oldEnd) {
         unmount(oldChildren[j++])
@@ -108,6 +112,8 @@ function createRenderer(options) {
     } else {
       // 构造 source 数组
       const count = newEnd - j + 1  // 新的一组子节点中剩余未处理节点的数量
+        // :::: 【source数组】将用来存储新的一组子节点中的节点在旧的一组的 【位置索引】
+        //  用来构造 最长递增子序列 的索引值
       const source = new Array(count)
       source.fill(-1)
 
@@ -117,13 +123,17 @@ function createRenderer(options) {
       let pos = 0
       const keyIndex = {}
       for(let i = newStart; i <= newEnd; i++) {
+          // :::: 为新的一组子节点中的节点建立 key 与 索引值 的映射
         keyIndex[newChildren[i].key] = i
       }
-      let patched = 0
+      let patched = 0 // :::: 代表已经更新过的节点的数量
       for(let i = oldStart; i <= oldEnd; i++) {
         oldVNode = oldChildren[i]
+        //// ::::即  【更新过的节点数量】  <  【新的一组子节点中剩余未处理节点的数量】
         if (patched < count) {
+            // ::::通过索引表快速找到【新的一组子节点中】 具有相同 key 值的节点位置
           const k = keyIndex[oldVNode.key]
+            // ::::找到了
           if (typeof k !== 'undefined') {
             newVNode = newChildren[k]
             patch(oldVNode, newVNode, container)
@@ -135,20 +145,23 @@ function createRenderer(options) {
             } else {
               pos = k
             }
+            // ::::没找到,直接卸载
           } else {
-            // 没找到
             unmount(oldVNode)
           }
+        //// ::::已经更新过的节点数量 >= 新的一组子节点中剩余未处理节点的数量,直接卸载
         } else {
           unmount(oldVNode)
         }
       }
 
+      // ::::如果 moved 为 true，则说明需要移动节点
       if (moved) {
+          // ::::::构造最长递增子序列
         const seq = lis(source)
         // s 指向最长递增子序列的最后一个值
         let s = seq.length - 1
-        let i = count - 1
+        let i = count - 1 // const count = newEnd - j + 1  // 新的一组子节点中剩余未处理节点的数量
         for (i; i >= 0; i--) {
           if (source[i] === -1) {
             // 说明索引为 i 的节点是全新的节点，应该将其挂载
@@ -191,7 +204,7 @@ function createRenderer(options) {
     const el = n2.el = n1.el
     const oldProps = n1.props
     const newProps = n2.props
-    
+
     for (const key in newProps) {
       if (newProps[key] !== oldProps[key]) {
         patchProps(el, key, oldProps[key], newProps[key])
@@ -263,7 +276,7 @@ function patch(n1, n2, container, anchor) {
     // 把 vnode 存储到 container._vnode 下，即后续渲染中的旧 vnode
     container._vnode = vnode
   }
-  
+
   return {
     render
   }

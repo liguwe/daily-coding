@@ -111,6 +111,7 @@ function createRenderer(options) {
       }
     }
 
+    // // ::::循环结束后，如果还有剩余的节点没有处理，那么这些节点都是需要新增的节点
     if (oldEndIdx < oldStartIdx && newStartIdx <= newEndIdx) {
       // 添加新节点
       for (let i = newStartIdx; i <= newEndIdx; i++) {
@@ -124,7 +125,7 @@ function createRenderer(options) {
     const el = n2.el = n1.el
     const oldProps = n1.props
     const newProps = n2.props
-    
+
     for (const key in newProps) {
       if (newProps[key] !== oldProps[key]) {
         patchProps(el, key, oldProps[key], newProps[key])
@@ -196,7 +197,7 @@ function patch(n1, n2, container, anchor) {
     // 把 vnode 存储到 container._vnode 下，即后续渲染中的旧 vnode
     container._vnode = vnode
   }
-  
+
   return {
     render
   }
