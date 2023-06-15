@@ -613,7 +613,16 @@ const MyComponent = {
 
 const InnerComp = {
     name: 'InnerComp',
-    setup() {
+    /**
+     * expose: 暴露给父组件的属性
+     * */
+    setup(props, {emit, slots,attrs,expose}) {
+        const count = ref(0);
+        // 返回一个对象
+        return {
+            count,
+        }
+        // 返回一个渲染函数
         return () => ({
             type: 'span',
             children: 'inner'
