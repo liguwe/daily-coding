@@ -279,7 +279,7 @@ function createRenderer(options) {
     const el = n2.el = n1.el
     const oldProps = n1.props
     const newProps = n2.props
-    
+
     for (const key in newProps) {
       if (newProps[key] !== oldProps[key]) {
         patchProps(el, key, oldProps[key], newProps[key])
@@ -371,7 +371,7 @@ function createRenderer(options) {
   }
 
   function mountFunctionalComponent(n2, container, anchor) {
-    
+
   }
 
   function patchComponent(n1, n2, anchor) {
@@ -570,7 +570,7 @@ function createRenderer(options) {
     // 把 vnode 存储到 container._vnode 下，即后续渲染中的旧 vnode
     container._vnode = vnode
   }
-  
+
   return {
     render
   }
@@ -661,7 +661,7 @@ const KeepAlive = {
     exclude: RegExp
   },
   setup(props, { slots }) {
-    
+
     const instance = currentInstance
     const { move, createElement } = instance.keepAliveCtx
 
@@ -746,7 +746,6 @@ const Transition = {
           nextFrame(() => {
             el.classList.remove('enter-from')
             el.classList.add('enter-to')
-
             el.addEventListener('transitionend', () => {
               el.classList.remove('enter-to')
               el.classList.remove('enter-active')
@@ -756,23 +755,18 @@ const Transition = {
         leave(el, performRemove) {
           el.classList.add('leave-from')
           el.classList.add('leave-active')
-
           // document.body.offsetHeight
-
           nextFrame(() => {
             el.classList.remove('leave-from')
             el.classList.add('leave-to')
-
             el.addEventListener('transitionend', () => {
               el.classList.remove('leave-to')
               el.classList.remove('leave-active')
-
               performRemove()
             })
           })
         }
       }
-
       return innerVNode
     }
   }
