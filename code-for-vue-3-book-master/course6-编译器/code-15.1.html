@@ -92,9 +92,16 @@ function tokenize(str) {
         break
     }
   }
-
   return tokens
 }
 
 console.log(tokenize(template))
+console.log(JSON.stringify(tokenize(template)))
+
+
+
+/**
+ * [{"type":"tag","name":"p"},{"type":"text","content":"Vue"},{"type":"tagEnd","name":"p"}]
+ * */
+
 </script>
