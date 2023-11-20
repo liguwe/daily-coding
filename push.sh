@@ -8,7 +8,7 @@ git add .
 current_datetime=$(date +"%Y-%m-%d %H:%M")
 
 # 构建 commit 消息
-commit_message="update At ${current_datetime}"
+commit_message="update at ${current_datetime}"
 
 git commit -am "$commit_message"
 
