@@ -5,14 +5,14 @@ set -e
 git add .
 
 # 获取当前日期和时间，并格式化为YYYY-MM-DD-HH-MM
-current_datetime=$(date +"%Y-%m-%d-%H-%M")
+current_datetime=$(date +"%Y-%m-%d %H:%M")
 
 # 构建 commit 消息
 commit_message="update At ${current_datetime}"
 
 git commit -am "$commit_message"
 
-git push -f git@github.com:liguwe/daily-coding.git main
+git push
 
 
 
